@@ -21,8 +21,15 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="dark" />
       
-      {/* Hero Section with Big Motto */}
+      {/* Hero Section with Logo and Big Motto */}
       <View style={styles.heroSection}>
+        {/* Clario Logo Icon */}
+        <View style={styles.logoContainer}>
+          <View style={styles.logoIcon}>
+            <Text style={styles.logoWave}>~</Text>
+          </View>
+        </View>
+        
         <Text style={styles.bigMotto}>Clear your mind,{'\n'}build your dreams</Text>
         <Text style={styles.subtitle}>Welcome to Clario</Text>
       </View>
@@ -88,6 +95,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 40,
     paddingTop: 80,
+  },
+  logoContainer: {
+    marginBottom: 40,
+    alignItems: 'center',
+  },
+  logoIcon: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: '#007AFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#007AFF',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  logoWave: {
+    fontSize: 32,
+    fontWeight: '600',
+    color: 'white',
   },
   bigMotto: {
     fontSize: 42,
