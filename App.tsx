@@ -3,7 +3,6 @@ import {
   StyleSheet, 
   Text, 
   View, 
-  Image, 
   TouchableOpacity, 
   SafeAreaView,
   Dimensions 
@@ -22,36 +21,20 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="dark" />
       
-      {/* Logo Section */}
-      <View style={styles.logoSection}>
-        <View style={styles.logoContainer}>
-          <View style={styles.logoCircle}>
-            <Text style={styles.logoWave}>~</Text>
-          </View>
-          <Text style={styles.logoText}>clario</Text>
-        </View>
-        <Text style={styles.motto}>clear your mind, build your dreams</Text>
+      {/* Hero Section with Big Motto */}
+      <View style={styles.heroSection}>
+        <Text style={styles.bigMotto}>Clear your mind,{'\n'}build your dreams</Text>
+        <Text style={styles.subtitle}>Welcome to Clario</Text>
       </View>
 
       {/* Login Buttons Section */}
       <View style={styles.loginSection}>
-        <Text style={styles.welcomeText}>Welcome to Clario</Text>
-        <Text style={styles.subtitleText}>Choose your preferred login method</Text>
-        
         <View style={styles.buttonContainer}>
-          <TouchableOpacity 
-            style={[styles.loginButton, styles.phoneButton]} 
-            onPress={() => handleLogin('Phone')}
-          >
-            <Text style={styles.phoneIcon}>📱</Text>
-            <Text style={styles.buttonText}>Continue with Phone</Text>
-          </TouchableOpacity>
-
           <TouchableOpacity 
             style={[styles.loginButton, styles.appleButton]} 
             onPress={() => handleLogin('Apple')}
           >
-            <Text style={styles.appleIcon}>🍎</Text>
+            <Text style={styles.appleIcon}>􀣺</Text>
             <Text style={[styles.buttonText, styles.whiteText]}>Continue with Apple</Text>
           </TouchableOpacity>
 
@@ -61,6 +44,14 @@ export default function App() {
           >
             <Text style={styles.googleIcon}>G</Text>
             <Text style={styles.buttonText}>Continue with Google</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[styles.loginButton, styles.phoneButton]} 
+            onPress={() => handleLogin('Phone')}
+          >
+            <Text style={styles.phoneIcon}>􀌾</Text>
+            <Text style={styles.buttonText}>Continue with Phone</Text>
           </TouchableOpacity>
 
           <TouchableOpacity 
@@ -76,7 +67,10 @@ export default function App() {
       {/* Footer */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>
-          By continuing, you agree to our Terms of Service and Privacy Policy
+          By continuing, you agree to our{' '}
+          <Text style={styles.linkText}>Terms of Service</Text>
+          {' '}and{' '}
+          <Text style={styles.linkText}>Privacy Policy</Text>
         </Text>
       </View>
     </SafeAreaView>
@@ -86,132 +80,115 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F3F0',
+    backgroundColor: '#FAFAFA',
   },
-  logoSection: {
-    flex: 2,
+  heroSection: {
+    flex: 2.5,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 60,
+    paddingHorizontal: 40,
+    paddingTop: 80,
   },
-  logoContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  logoCircle: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: '#1E90FF',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 15,
-  },
-  logoWave: {
-    fontSize: 32,
-    color: 'white',
-    fontWeight: 'bold',
-  },
-  logoText: {
-    fontSize: 48,
-    fontWeight: '300',
-    color: '#1A1A2E',
-    letterSpacing: -1,
-  },
-  motto: {
-    fontSize: 16,
-    color: '#666',
-    fontStyle: 'italic',
+  bigMotto: {
+    fontSize: 42,
+    fontWeight: '600',
+    color: '#1D1D1F',
     textAlign: 'center',
-    marginTop: 10,
+    lineHeight: 50,
+    letterSpacing: -0.5,
+    marginBottom: 16,
+  },
+  subtitle: {
+    fontSize: 19,
+    fontWeight: '400',
+    color: '#86868B',
+    textAlign: 'center',
   },
   loginSection: {
-    flex: 3,
-    paddingHorizontal: 30,
-    justifyContent: 'flex-start',
-  },
-  welcomeText: {
-    fontSize: 28,
-    fontWeight: '600',
-    color: '#1A1A2E',
-    textAlign: 'center',
-    marginBottom: 8,
-  },
-  subtitleText: {
-    fontSize: 16,
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: 40,
+    flex: 2,
+    paddingHorizontal: 40,
+    justifyContent: 'center',
   },
   buttonContainer: {
-    gap: 16,
+    gap: 12,
   },
   loginButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 16,
+    paddingVertical: 14,
     paddingHorizontal: 20,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
-  },
-  phoneButton: {
-    backgroundColor: 'white',
+    borderRadius: 25,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
   },
   appleButton: {
     backgroundColor: '#000',
-    borderColor: '#000',
   },
   googleButton: {
-    backgroundColor: 'white',
-    borderColor: '#E0E0E0',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 0.5,
+    borderColor: '#D2D2D7',
+  },
+  phoneButton: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 0.5,
+    borderColor: '#D2D2D7',
   },
   facebookButton: {
     backgroundColor: '#1877F2',
-    borderColor: '#1877F2',
-  },
-  phoneIcon: {
-    fontSize: 20,
-    marginRight: 12,
   },
   appleIcon: {
-    fontSize: 20,
-    marginRight: 12,
+    fontSize: 16,
+    color: 'white',
+    marginRight: 8,
   },
   googleIcon: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: '600',
     color: '#4285F4',
-    marginRight: 12,
-    width: 20,
+    marginRight: 8,
+    width: 16,
     textAlign: 'center',
   },
+  phoneIcon: {
+    fontSize: 16,
+    color: '#007AFF',
+    marginRight: 8,
+  },
   facebookIcon: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: '600',
     color: 'white',
-    marginRight: 12,
+    marginRight: 8,
   },
   buttonText: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#1A1A2E',
+    color: '#1D1D1F',
   },
   whiteText: {
     color: 'white',
   },
   footer: {
-    flex: 1,
+    flex: 0.5,
     justifyContent: 'flex-end',
-    paddingHorizontal: 30,
-    paddingBottom: 30,
+    paddingHorizontal: 40,
+    paddingBottom: 40,
   },
   footerText: {
-    fontSize: 12,
-    color: '#999',
+    fontSize: 13,
+    color: '#86868B',
     textAlign: 'center',
     lineHeight: 18,
+  },
+  linkText: {
+    color: '#007AFF',
   },
 }); 
