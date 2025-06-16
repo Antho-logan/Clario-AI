@@ -17,6 +17,29 @@ A React Native iOS app built with Expo that provides QR code and barcode scannin
 - Expo Go app on your iOS device
 - iOS device with camera
 
+## 🚀 QUICK START (Under 2 Minutes!)
+
+### Super Fast Method:
+1. **Windows:** Double-click `start-expo.bat`
+2. **Mac/Linux:** Run `./start-expo.sh`
+3. **Manual:** See `QUICK_START_GUIDE.md` for detailed instructions
+
+### Current QR Code (Ready to Scan!):
+```
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ ▄▄▄▄▄ █▄▄▄ ▀ ▄██ ▀▀██ ▄▄▄▄▄ █
+█ █   █ ██▄▀ █ ▄█▄▀▀▄▄█ █   █ █
+█ █▄▄▄█ ██▀▄ ▄▀▄█▄▀▄▄▀█ █▄▄▄█ █
+█▄▄▄▄▄▄▄█ ▀▄█ ▀▄█▄█▄█▄█▄▄▄▄▄▄▄█
+█  █▄ ▀▄▀▀▄▀█▄█▄▀▄ ▄▀██▄▀▀██▀▄█
+█▀▀█▀▀█▄▄▄▄██▄██▄█  █▀ ▄▄███▄▀█
+██▄ ▀▄▀▄▀▀▄ █▀▄   █▄█▄▄  ▀▄█  █
+█▀▀▀  ▀▄▀▄ ▀█▀▀  ▄█ ▄ ▀▀█▄█ █ █
+█ ▄███▀▄▄▀█▄ ▄██▀▀█▄ ▀██▄▀▀▀ ▄█
+█  █▀▄▀▄ ▄ ▄▀▄ ▄▄▄▄ ▄▄ ▄▄▀█▀▀▄█
+█▄▄▄█▄█▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+```
+
 ## Installation
 
 1. Clone this repository:
@@ -32,7 +55,7 @@ npm install
 
 3. Start the development server:
 ```bash
-npm start
+npx expo start --tunnel
 ```
 
 4. Scan the QR code with Expo Go on your iOS device
@@ -56,12 +79,15 @@ npm start
 
 ```
 AwesomeQRApp/
-├── App.tsx              # Main app component with scanner logic
-├── index.js             # App entry point
-├── package.json         # Dependencies and scripts
-├── tsconfig.json        # TypeScript configuration
-├── app.json             # Expo configuration
-└── assets/              # Static assets
+├── App.tsx                    # Main app component with scanner logic
+├── index.js                   # App entry point
+├── package.json               # Dependencies and scripts
+├── tsconfig.json              # TypeScript configuration
+├── app.json                   # Expo configuration
+├── QUICK_START_GUIDE.md       # 🚀 Complete guide to get QR code fast
+├── start-expo.sh              # 🐧 Linux/Mac quick start script
+├── start-expo.bat             # 🪟 Windows quick start script
+└── assets/                    # Static assets
 ```
 
 ## Development
