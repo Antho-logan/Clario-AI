@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   StyleSheet, 
   Text, 
@@ -8,14 +8,22 @@ import {
   Dimensions 
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { PatternScreen } from './components/PatternScreen';
 
 const { width, height } = Dimensions.get('window');
 
 export default function App() {
+  const [currentScreen, setCurrentScreen] = useState<'login' | 'patterns'>('login');
+
   const handleLogin = (provider: string) => {
     console.log(`Login with ${provider}`);
-    // TODO: Implement actual login logic
+    // For demo purposes, navigate to patterns screen
+    setCurrentScreen('patterns');
   };
+
+  if (currentScreen === 'patterns') {
+    return <PatternScreen />;
+  }
 
   return (
     <SafeAreaView style={styles.container}>
