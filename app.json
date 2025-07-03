@@ -1,32 +1,41 @@
 {
   "expo": {
-    "name": "AwesomeQRApp",
-    "slug": "AwesomeQRApp",
+    "name": "AppClario",
+    "slug": "app-clario",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FAFAFA"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.appclario.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FAFAFA"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.appclario.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-barcode-scanner"
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow AppClario to access camera for QR scanning."
+        }
+      ],
+      "react-native-reanimated/plugin"
     ]
   }
 }
