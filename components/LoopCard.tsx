@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
+  GestureResponderEvent,
 } from 'react-native';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withDelay,
+  withSpring,
+  withTiming,
+  withSequence,
+} from 'react-native-reanimated';
+import { AnimatedButton } from './AnimatedButton';
+import { AnimatedIcon } from './AnimatedIcon';
+import { SPRING_CONFIG, TIMING } from '../utils/motion.config';
 
 interface LoopCardProps {
   icon: string;
   title: string;
   summary: string;
   onCreateSolution: () => void;
+  delayAnimation?: number;
 }
 
 export const LoopCard: React.FC<LoopCardProps> = ({
@@ -18,97 +30,154 @@ export const LoopCard: React.FC<LoopCardProps> = ({
   title,
   summary,
   onCreateSolution,
+  delayAnimation = 0,
 }) => {
+  // Animation values
+  const scale = useSharedValue(0.9);
+  const opacity = useSharedValue(0);
+  const translateY = useSharedValue(40);
+  const cardPressed = useSharedValue(false);
+
+  useEffect(() => {
+    // Entrance animation with elegant timing
+    opacity.value = withDelay(delayAnimation, withTiming(1, { duration: TIMING.medium }));
+    scale.value = withDelay(delayAnimation, withSpring(1, SPRING_CONFIG.bouncy));
+    translateY.value = withDelay(delayAnimation, withSpring(0, SPRING_CONFIG.gentle));
+  }, [delayAnimation]);
+
+  const handlePressIn = () => {
+    cardPressed.value = true;
+  };
+
+  const handlePressOut = () => {
+    cardPressed.value = false;
+  };
+
+  const cardAnimatedStyle = useAnimatedStyle(() => {
+    const pressScale = cardPressed.value ? 0.98 : 1;
+    
+    return {
+      opacity: opacity.value,
+      transform: [
+        { scale: scale.value * pressScale },
+        { translateY: translateY.value },
+      ],
+    };
+  });
+
+  const cardShadowStyle = useAnimatedStyle(() => {
+    return {
+      shadowOpacity: cardPressed.value ? 0.15 : 0.08,
+      shadowRadius: cardPressed.value ? 16 : 12,
+      elevation: cardPressed.value ? 8 : 4,
+    };
+  });
+
   return (
-    <View style={styles.card}>
+    <Animated.View 
+      style={[
+        styles.card, 
+        cardAnimatedStyle,
+        cardShadowStyle,
+      ]}
+      onTouchStart={handlePressIn}
+      onTouchEnd={handlePressOut}
+    >
       <View style={styles.cardContent}>
-        <View style={styles.iconContainer}>
-          <Text style={styles.icon}>{icon}</Text>
-        </View>
+        <AnimatedIcon
+          icon={icon}
+          size={24}
+          delayAnimation={delayAnimation + 200}
+          pulseOnMount={true}
+          backgroundCircle={true}
+          backgroundColor="#FFB6B6"
+        />
         
         <View style={styles.textContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.summary}>{summary}</Text>
+          <Animated.Text 
+            style={[
+              styles.title,
+              {
+                opacity: opacity,
+                transform: [{ translateY: translateY }],
+              }
+            ]}
+          >
+            {title}
+          </Animated.Text>
+          
+          <Animated.Text 
+            style={[
+              styles.summary,
+              {
+                opacity: opacity,
+                transform: [{ translateY: translateY }],
+              }
+            ]}
+          >
+            {summary}
+          </Animated.Text>
         </View>
       </View>
       
-      <TouchableOpacity
-        style={styles.ctaButton}
+      <AnimatedButton
+        title="🧠 Create a Solution Path"
         onPress={onCreateSolution}
-        activeOpacity={0.8}
-      >
-        <Text style={styles.ctaText}>🧠 Create a Solution Path</Text>
-      </TouchableOpacity>
-    </View>
+        variant="secondary"
+        style={styles.ctaButton}
+        delayAnimation={delayAnimation + 400}
+      />
+    </Animated.View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 16,
+    borderRadius: 20,
+    padding: 24,
+    marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 4,
   },
   cardContent: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    marginBottom: 16,
-  },
-  iconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: '#FFB6B6',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 16,
-  },
-  icon: {
-    fontSize: 24,
+    marginBottom: 20,
   },
   textContainer: {
     flex: 1,
+    marginLeft: 16,
   },
   title: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '700',
     color: '#1D1D1F',
     marginBottom: 8,
-    lineHeight: 22,
+    lineHeight: 26,
+    letterSpacing: -0.3,
   },
   summary: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '400',
     color: '#86868B',
-    lineHeight: 20,
+    lineHeight: 22,
+    letterSpacing: 0.1,
   },
   ctaButton: {
-    backgroundColor: '#FFB6B6',
-    borderRadius: 12,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    alignItems: 'center',
     shadowColor: '#FFB6B6',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
     shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  ctaText: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#1D1D1F',
+    shadowRadius: 8,
+    elevation: 4,
   },
 });
