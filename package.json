@@ -1,25 +1,65 @@
 {
-  "name": "awesomeqrapp",
+  "name": "clario-ai",
   "version": "1.0.0",
+  "description": "Clario AI - Your AI-powered entrepreneurship companion. Get personalized guidance, strategic insights, and actionable plans to build and grow your business.",
   "main": "index.js",
+  "keywords": [
+    "ai",
+    "entrepreneurship",
+    "business",
+    "startup",
+    "guidance",
+    "react-native",
+    "expo",
+    "mobile-app"
+  ],
+  "author": "Clario AI Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clario-ai/mobile-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clario-ai/mobile-app/issues"
+  },
+  "homepage": "https://clario.ai",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build": "expo build",
+    "test": "jest",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "expo": "~53.0.11",
+    "@expo/metro-runtime": "~5.0.4",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-navigation/bottom-tabs": "^7.3.15",
+    "@react-navigation/native": "^7.1.11",
+    "@react-navigation/stack": "^7.3.4",
+    "expo": "53.0.12",
     "expo-barcode-scanner": "^13.0.1",
+    "expo-linear-gradient": "^14.1.5",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
-    "react-native": "0.79.3"
+    "react-dom": "19.0.0",
+    "react-native": "0.79.4",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "^4.11.1",
+    "react-native-web": "^0.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@types/react": "^19.1.8",
+    "@types/react": "~19.0.10",
     "@types/react-native": "^0.72.8",
+    "@types/react-navigation": "^3.0.8",
     "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   },
   "private": true
 }

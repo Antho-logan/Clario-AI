@@ -1,22 +1,14 @@
-# 🚀 QUICK START GUIDE - Get QR Code in Under 2 Minutes!
+# 🚀 CLARIO AI - QUICK START GUIDE
 
-## 📱 CURRENT QR CODE (Ready to Scan!)
-```
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-█ ▄▄▄▄▄ █▄▄▄ ▀ ▄██ ▀▀██ ▄▄▄▄▄ █
-█ █   █ ██▄▀ █ ▄█▄▀▀▄▄█ █   █ █
-█ █▄▄▄█ ██▀▄ ▄▀▄█▄▀▄▄▀█ █▄▄▄█ █
-█▄▄▄▄▄▄▄█ ▀▄█ ▀▄█▄█▄█▄█▄▄▄▄▄▄▄█
-█  █▄ ▀▄▀▀▄▀█▄█▄▀▄ ▄▀██▄▀▀██▀▄█
-█▀▀█▀▀█▄▄▄▄██▄██▄█  █▀ ▄▄███▄▀█
-██▄ ▀▄▀▄▀▀▄ █▀▄   █▄█▄▄  ▀▄█  █
-█▀▀▀  ▀▄▀▄ ▀█▀▀  ▄█ ▄ ▀▀█▄█ █ █
-█ ▄███▀▄▄▀█▄ ▄██▀▀█▄ ▀██▄▀▀▀ ▄█
-█  █▀▄▀▄ ▄ ▄▀▄ ▄▄▄▄ ▄▄ ▄▄▀█▀▀▄█
-█▄▄▄█▄█▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
-```
+> Get your Clario AI app running in under 2 minutes!
 
-**📍 Current Tunnel URL:** `exp://[tunnel-url]-8085.exp.direct`
+## 📱 WHAT IS CLARIO AI?
+
+Clario AI is your AI-powered entrepreneurship companion. The app provides:
+- **Personalized onboarding** with 8 strategic questions
+- **AI-driven insights** for your business journey
+- **Three focus areas** for entrepreneurial success
+- **Beautiful, iOS-inspired** user interface
 
 ---
 
@@ -27,7 +19,7 @@
 cd AwesomeQRApp
 ```
 
-### Step 2: Start Expo (One Command)
+### Step 2: Start Expo Development Server
 ```bash
 npx expo start --tunnel
 ```
@@ -39,6 +31,25 @@ npx expo start --tunnel
 ### Step 4: Scan QR Code
 - **Android:** Open Expo Go app → Scan QR Code
 - **iOS:** Open Camera app → Point at QR code
+
+---
+
+## 🎯 APP FLOW PREVIEW
+
+Once you scan the QR code, you'll experience:
+
+1. **🏠 Home Screen** - Welcome with beautiful animations and login options
+2. **📝 Onboarding** - 8 personalized questions covering:
+   - Your name and location
+   - Preferred language
+   - Business goals and experience
+   - Industry interests and challenges
+3. **⏳ Loading Screen** - Animated progress bar with status updates
+4. **🎯 Focus Areas** - Three key recommendations:
+   - Market Research & Validation 🎯
+   - Strategic Planning & Execution 🚀
+   - Financial Management & Growth 💰
+5. **🚀 Continue to App** - Ready for the full experience
 
 ---
 
@@ -56,7 +67,7 @@ npx expo start --tunnel
 **Solution:** Always say YES to alternative ports
 ```bash
 # If 8081 is busy, use 8082, 8083, 8084, etc.
-npx expo start --tunnel --port 8085
+npx expo start --tunnel --port 8150
 ```
 
 ### Problem: Global Expo CLI Deprecated Warning
@@ -66,7 +77,7 @@ npx expo start --tunnel --port 8085
 **Solutions:**
 1. Try without tunnel first: `npx expo start`
 2. Install ngrok globally: `npm install -g @expo/ngrok`
-3. Use specific port: `npx expo start --tunnel --port 8090`
+3. Use specific port: `npx expo start --tunnel --port 8150`
 
 ---
 
@@ -77,13 +88,13 @@ npx expo start --tunnel --port 8085
 # Standard start (local network only)
 npx expo start
 
-# Tunnel mode (works anywhere)
+# Tunnel mode (works anywhere) - RECOMMENDED
 npx expo start --tunnel
 
 # Specific port
-npx expo start --tunnel --port 8085
+npx expo start --tunnel --port 8150
 
-# Web version
+# Web version (test in browser)
 npx expo start --web
 ```
 
@@ -109,7 +120,7 @@ npx expo start --clear --tunnel
 - [ ] Install ngrok if prompted (press Y)
 - [ ] Wait for QR code to appear
 - [ ] Scan with Expo Go (Android) or Camera (iOS)
-- [ ] App loads on device ✅
+- [ ] Experience the Clario AI onboarding flow ✅
 
 ---
 
@@ -126,23 +137,13 @@ npx expo start --clear --tunnel
 
 ---
 
-## 🚨 EMERGENCY QR CODE BACKUP
+## 🎨 DESIGN FEATURES YOU'LL SEE
 
-If the server is down, use this backup QR code (may be outdated):
-```
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-█ ▄▄▄▄▄ █▄▄▄ ▀ ▄██ ▀▀██ ▄▄▄▄▄ █
-█ █   █ ██▄▀ █ ▄█▄▀▀▄▄█ █   █ █
-█ █▄▄▄█ ██▀▄ ▄▀▄█▄▀▄▄▀█ █▄▄▄█ █
-█▄▄▄▄▄▄▄█ ▀▄█ ▀▄█▄█▄█▄█▄▄▄▄▄▄▄█
-█  █▄ ▀▄▀▀▄▀█▄█▄▀▄ ▄▀██▄▀▀██▀▄█
-█▀▀█▀▀█▄▄▄▄██▄██▄█  █▀ ▄▄███▄▀█
-██▄ ▀▄▀▄▀▀▄ █▀▄   █▄█▄▄  ▀▄█  █
-█▀▀▀  ▀▄▀▄ ▀█▀▀  ▄█ ▄ ▀▀█▄█ █ █
-█ ▄███▀▄▄▀█▄ ▄██▀▀█▄ ▀██▄▀▀▀ ▄█
-█  █▀▄▀▄ ▄ ▄▀▄ ▄▄▄▄ ▄▄ ▄▄▀█▀▀▄█
-█▄▄▄█▄█▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
-```
+- **🎯 Clario AI Branding** - Beautiful logo and consistent blue theme (#007AFF)
+- **✨ Smooth Animations** - 60fps transitions and micro-interactions
+- **📱 iOS-Inspired Design** - Following Human Interface Guidelines
+- **🎴 Card-Based Layout** - Clean, modern interface
+- **🌊 Floating Elements** - Animated background components
 
 ---
 
@@ -153,17 +154,31 @@ If the server is down, use this backup QR code (may be outdated):
 3. **Shake Device:** Shake phone to open developer menu
 4. **Network Issues:** Use `--tunnel` for remote access, skip for local only
 5. **Multiple Devices:** Same QR code works on multiple devices
+6. **Web Testing:** Press `w` in terminal to test in browser
 
 ---
 
-## 🔄 LAST SUCCESSFUL CONFIGURATION
+## 🔄 RECOMMENDED CONFIGURATION
 
-- **Port Used:** 8085
-- **Mode:** Tunnel
-- **Command:** `npx expo start --tunnel --port 8085`
-- **Date:** Generated automatically
-- **Status:** ✅ Working
+- **Port:** 8150 (or auto-assigned)
+- **Mode:** Tunnel (for best connectivity)
+- **Command:** `npx expo start --tunnel --port 8150`
+- **Target:** Under 2 minutes from terminal to app launch
 
 ---
 
-**⏱️ Target Time: Under 2 minutes from opening terminal to scanning QR code!** 
+## 🌟 WHAT'S NEXT?
+
+After testing the app:
+1. **Explore the onboarding flow** - Answer the 8 questions
+2. **Watch the loading animations** - Beautiful progress indicators
+3. **Review your focus areas** - Personalized recommendations
+4. **Continue development** - Ready to build more features!
+
+---
+
+**⏱️ Target Time: Under 2 minutes from opening terminal to experiencing Clario AI!**
+
+---
+
+Built with ❤️ by the Clario AI Team 

@@ -1,32 +1,44 @@
 {
   "expo": {
-    "name": "AwesomeQRApp",
-    "slug": "AwesomeQRApp",
+    "name": "Clario AI",
+    "slug": "clario-ai",
     "version": "1.0.0",
+    "description": "Your AI-powered entrepreneurship companion. Get personalized guidance, strategic insights, and actionable plans to build and grow your business.",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "primaryColor": "#007AFF",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FAFAFA"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.clario.ai"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FAFAFA"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.clario.ai"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "name": "Clario AI",
+      "shortName": "Clario",
+      "description": "AI-powered entrepreneurship companion"
     },
     "plugins": [
       "expo-barcode-scanner"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "clario-ai-mobile"
+      }
+    }
   }
 }
